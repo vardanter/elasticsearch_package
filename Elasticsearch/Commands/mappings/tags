@@ -1,0 +1,20 @@
+{
+  "mappings": {
+    "tag": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "tag": {
+          "type": "keyword"
+        },
+        "translit": {
+          "type": "keyword"
+        },
+        "used_count": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

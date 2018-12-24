@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "user_playlist": {
+      "properties": {
+        "user_id": {
+          "type": "integer"
+        },
+        "playlist_ids": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "settings": {
+    "analysis": {
+        "filter": {
+          "english_stop": {
+            "type": "stop",
+            "stopwords": "_english_"
+          },
+          "english_keywords": {
+            "type": "keyword_marker",
+            "keywords": [
+              "example"
+            ]
+          },
+          "english_stemmer": {
+            "type": "stemmer",
+            "language": "english"
+          },
+          "english_possessive_stemmer": {
+            "type": "stemmer",
+            "language": "possessive_english"
+          }
+        },
+        "analyzer": {
+          "english": {
+            "tokenizer": "standard",
+            "filter": [
+              "english_possessive_stemmer",
+              "lowercase",
+              "english_stop",
+              "english_keywords",
+              "english_stemmer"
+            ]
+          }
+        }
+    }
+  },
+  "mappings": {
+    "playlist": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "text",
+          "analyzer": "english",
+          "search_analyzer": "english"
+        },
+        "description": {
+          "type": "text"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "integer"
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "channel_id": {
+          "type": "integer"
+        },
+        "translit": {
+          "type": "text"
+        },
+        "user_status": {
+          "type": "integer"
+        },
+        "channel_status": {
+          "type": "integer"
+        },
+        "langs": {
+          "type": "text"
+        },
+        "video_ids": {
+          "type": "text"
+        },
+        "created_at": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+        },
+        "updated_at": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+        },
+        "relations": {
+          "type": "join",
+          "relations": {
+            "playlist": [
+              "watch_count",
+              "relevance"
+            ]
+          }
+        },
+        "relevance": {
+          "type": "float"
+        },
+        "watch_count": {
+          "type": "long"
+        }
+      }
+    }
+  }
+}

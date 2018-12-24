@@ -1,0 +1,236 @@
+{
+  "settings": {
+    "analysis": {
+        "filter": {
+          "english_stop": {
+            "type": "stop",
+            "stopwords": "_english_"
+          },
+          "english_keywords": {
+            "type": "keyword_marker",
+            "keywords": [
+              "example"
+            ]
+          },
+          "english_stemmer": {
+            "type": "stemmer",
+            "language": "english"
+          },
+          "english_possessive_stemmer": {
+            "type": "stemmer",
+            "language": "possessive_english"
+          }
+        },
+        "analyzer": {
+          "english": {
+            "tokenizer": "standard",
+            "filter": [
+              "english_possessive_stemmer",
+              "lowercase",
+              "english_stop",
+              "english_keywords",
+              "english_stemmer"
+            ]
+          }
+        }
+    }
+  },
+  "mappings": {
+    "ad_video": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "channel_id": {
+          "type": "integer"
+        },
+        "unique_id": {
+          "type": "text"
+        },
+        "title": {
+          "type": "text",
+          "analyzer": "english",
+          "search_analyzer": "english"
+        },
+        "description": {
+          "type": "text"
+        },
+        "default_image": {
+          "type": "keyword"
+        },
+        "video": {
+          "type": "text"
+        },
+        "duration": {
+          "type": "integer"
+        },
+        "video_publish_type": {
+          "type": "integer"
+        },
+        "publish_time": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||0000-00-00 00:00:00"
+        },
+        "is_approved": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "is_banner": {
+          "type": "integer"
+        },
+        "banner_image": {
+          "type": "keyword"
+        },
+        "banner_expire": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||0000-00-00 00:00:00"
+        },
+        "promotion_expire": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||0000-00-00 00:00:00"
+        },
+        "promotion": {
+          "type": "integer"
+        },
+        "payed_banner": {
+          "type": "integer"
+        },
+        "amount": {
+          "type": "double"
+        },
+        "reviews": {
+          "type": "text"
+        },
+        "video_path": {
+          "type": "text"
+        },
+        "video_resolutions": {
+          "type": "text"
+        },
+        "publish_status": {
+          "type": "integer"
+        },
+        "compress_status": {
+          "type": "integer"
+        },
+        "ad_status": {
+          "type": "integer"
+        },
+        "ratings": {
+          "type": "integer"
+        },
+        "created_at": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+        },
+        "updated_at": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "integer"
+        },
+        "main_video": {
+          "type": "integer"
+        },
+        "for_all": {
+          "type": "integer"
+        },
+        "translit": {
+          "type": "text"
+        },
+        "age_mark": {
+          "type": "integer"
+        },
+        "finished": {
+          "type": "integer"
+        },
+        "show_comments": {
+          "type": "integer"
+        },
+        "allow_trending": {
+          "type": "integer"
+        },
+        "tags": {
+          "type": "text",
+          "analyzer": "english",
+          "search_analyzer": "english"
+        },
+        "show_ad": {
+          "type": "integer"
+        },
+        "user_status": {
+          "type": "integer"
+        },
+        "channel_status": {
+          "type": "integer"
+        },
+        "ad_count": {
+          "type": "double"
+        },
+        "ad_show_count": {
+          "type": "integer"
+        },
+        "ad_watch_count": {
+          "type": "integer"
+        },
+        "targeting_ages": {
+          "type": "integer"
+        },
+        "targeting_countries": {
+          "type": "integer"
+        },
+        "targeting_categories": {
+          "type": "integer"
+        },
+        "targeting_sexes": {
+          "type": "integer"
+        },
+        "langs": {
+          "type": "text"
+        },
+        "booster": {
+          "type": "text"
+        },
+        "relations": {
+          "type": "join",
+          "relations": {
+            "video": [
+              "watch_count",
+              "comment_count",
+              "like_dislike",
+              "relevance",
+              "rating"
+            ]
+          }
+        },
+        "comment_count": {
+          "type": "long"
+        },
+        "likes": {
+          "type": "long"
+        },
+        "dislikes": {
+          "type": "long"
+        },
+        "likesdiff": {
+          "type": "long"
+        },
+        "relevance": {
+          "type": "float"
+        },
+        "rating": {
+          "type": "long"
+        },
+        "watch_count": {
+          "type": "long"
+        }
+      }
+    }
+  }
+}

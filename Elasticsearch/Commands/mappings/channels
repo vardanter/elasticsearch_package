@@ -1,0 +1,124 @@
+{
+  "settings": {
+    "analysis": {
+        "filter": {
+          "english_stop": {
+            "type": "stop",
+            "stopwords": "_english_"
+          },
+          "english_keywords": {
+            "type": "keyword_marker",
+            "keywords": [
+              "example"
+            ]
+          },
+          "english_stemmer": {
+            "type": "stemmer",
+            "language": "english"
+          },
+          "english_possessive_stemmer": {
+            "type": "stemmer",
+            "language": "possessive_english"
+          }
+        },
+        "analyzer": {
+          "english": {
+            "tokenizer": "standard",
+            "filter": [
+              "english_possessive_stemmer",
+              "lowercase",
+              "english_stop",
+              "english_keywords",
+              "english_stemmer"
+            ]
+          }
+        }
+    }
+  },
+  "mappings": {
+    "channel": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "unique_id": {
+          "type": "text"
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "text",
+          "analyzer": "english",
+          "search_analyzer": "english"
+        },
+        "description": {
+          "type": "text"
+        },
+        "picture": {
+          "type": "keyword"
+        },
+        "cover": {
+          "type": "keyword"
+        },
+        "is_approved": {
+          "type": "integer"
+        },
+        "verified": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "created_at": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+        },
+        "updated_at": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+        },
+        "pay_type": {
+          "type": "integer"
+        },
+        "day_price": {
+          "type": "double"
+        },
+        "week_price": {
+          "type": "double"
+        },
+        "month_price": {
+          "type": "double"
+        },
+        "year_price": {
+          "type": "double"
+        },
+        "user_status": {
+          "type": "integer"
+        },
+         "booster": {
+           "type": "text"
+         },
+        "relations": {
+          "type": "join",
+          "relations": {
+            "channel": [
+              "watch_count",
+              "subscribers",
+              "relevance"
+            ]
+          }
+        },
+        "subscribers": {
+          "type": "long"
+        },
+        "watch_count": {
+          "type": "long"
+        },
+        "relevance": {
+          "type": "float"
+        }
+      }
+    }
+  }
+}

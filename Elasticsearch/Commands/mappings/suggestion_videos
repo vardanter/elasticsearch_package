@@ -1,0 +1,20 @@
+{
+  "mappings": {
+    "suggestion_video": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "relevance": {
+          "type": "float"
+        },
+        "category_id": {
+          "type": "integer"
+        },
+        "langs": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}

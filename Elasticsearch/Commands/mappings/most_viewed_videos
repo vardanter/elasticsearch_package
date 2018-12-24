@@ -1,0 +1,16 @@
+{
+  "mappings": {
+    "most_viewed_video": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "cdns": {
+          "type": "text",
+          "analyzer": "english",
+          "search_analyzer": "english"
+        }
+      }
+    }
+  }
+}

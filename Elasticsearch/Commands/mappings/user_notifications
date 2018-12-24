@@ -1,0 +1,25 @@
+{
+  "mappings": {
+    "user_notification": {
+      "properties": {
+        "user_id": {
+          "type": "integer"
+        },
+        "notification_id": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "created_at": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+        },
+        "updated_at": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+        }
+      }
+    }
+  }
+}
